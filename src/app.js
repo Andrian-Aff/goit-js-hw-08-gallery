@@ -63,11 +63,15 @@ const galleryItems = [
     description: 'Lighthouse Coast Sea',
   },
 ];
+const refs = {
+  galleryContainer: document.querySelector('.js-gallery'),
+  lightboxOpenModal: document.querySelector('.lightbox'),
+  CloseModalBtn: document.querySelector('[data-action="close-lightbox"]'),
+};
 
-const galleryContainer = document.querySelector('.js-gallery');
 const galleryMarkup = createGalleryMarkup(galleryItems);
 
-galleryContainer.insertAdjacentHTML("beforeend", galleryMarkup);
+refs.galleryContainer.insertAdjacentHTML("beforeend", galleryMarkup);
 
 function createGalleryMarkup(items) {
   return items.map(({preview, original, description}) => {
@@ -89,4 +93,10 @@ function createGalleryMarkup(items) {
   }).join('');
 }
 
-
+refs.galleryContainer.addEventListener('click', onGalleryPictureClick);
+function onGalleryPictureClick(evt) {
+ if(!evt.target.classlist.contains('gallery__item')) {
+   return;
+ }
+ refs.lightboxOpenModal.classlist.add('.is-open');
+}
