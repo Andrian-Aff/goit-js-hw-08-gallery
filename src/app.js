@@ -126,7 +126,7 @@ function addBigSizeSorce(src, alt) {
   refs.modalImage.alt = alt;
 }
 
-function closeModal(event) {
+function closeModal() {
   refs.modal.classList.remove('is-open');
   window.removeEventListener('keydown', closeModal);
   refs.modalImage.src = "";
