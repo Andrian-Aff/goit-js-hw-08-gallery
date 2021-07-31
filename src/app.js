@@ -167,7 +167,7 @@ function slidePicturesToRight() {
   }   
 }
 
-function slidePicturesToLeft() {
+function slidePicturesTsoLeft() {
   const src = document.querySelector('.lightbox__image').src;
   let newArr = galleryItems.map(item => item)
 
@@ -177,3 +177,4 @@ function slidePicturesToLeft() {
     }
   }
  }
+ 
